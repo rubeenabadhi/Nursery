@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area" xmlns="http://www.w3.org/1999/html">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>Cart</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Cart Area Start ##### -->
+    <div class="cart-area section-padding-0-100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cart-table clearfix">
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>TOTAL</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {% for k in ci %}
+
+                                <tr>
+                                    <td class="cart_product_img">
+                                        <a href="{{gry_url}}"><img src="{{k.plant_obj.imageURL}}" alt="Product"></a>
+                                        <h5>{{k.plant_obj.name}}</h5>
+                                    </td>
+                                    <td class="qty">
+                                        <div class="quantity">
+                                            <span class="qty-minus" ><a href="{% url 'cart_decrement' k.plant_obj.id %}" ><i class="fa fa-minus" ></i></a></span>
+                                            <input type="number" class="qty-text"  min="1" max="99" name="quantity" value="{{k.quantity}}">
+                                            <span class="qty-plus" ><a href="{% url 'addcart' k.plant_obj.id %}"> <i class="fa fa-plus" aria-hidden="true"></i></a></span>
+                                        </div>
+                                    </td>
+                                    <td class="price"><span>{{k.plant_obj.price}}</span></td>
+                                    <td class="total_price"><span>{{k.total}}</span></td>
+                                    <td class="action"><a href="{% url 'removecart' k.plant_obj.id %}"><i class="icon_close"></i></a></td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Coupon Discount -->
+
+
+                <!-- Cart Totals -->
+                <div class="col-12 col-lg-6">
+                    <div class="cart-totals-area mt-70">
+                        <h5 class="title--">Cart Total</h5>
+                        <div class="subtotal d-flex justify-content-between">
+                            <h5>Subtotal</h5>
+                            <h5>{{t}}</h5>
+                        </div>
+                       <div class="total d-flex justify-content-between">
+                            <h5>Discount</h5>
+                            <h5>{{dsc}}</h5>
+                        </div>
+                        <div class="total d-flex justify-content-between">
+                            <h5>Shipping Charge</h5>
+                            <h5>{{sc}}</h5>
+                        </div>
+                        <div class="total d-flex justify-content-between">
+                            <h5>Total</h5>
+                            <h5>{{gt}}</h5>
+                        </div>
+                        </div>
+                        <div class="checkout-btn">
+                            <a href="{% url 'checkout' %}" class="btn alazea-btn w-100">PROCEED TO CHECKOUT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ##### Cart Area End ##### -->
+
+
+{% endblock %}

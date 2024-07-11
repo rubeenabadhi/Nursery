@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .fixed-height-img {
+        height: 200px; /* Set your desired fixed height */
+        object-fit: cover; /* Maintain aspect ratio while filling the height */
+        width: 100%; /* Ensure the width is 100% of the container */
+    }
+</style>
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-post-slides owl-carousel">
+
+            <!-- Single Hero Post -->
+            <div class="single-hero-post bg-overlay">
+                <!-- Post Image -->
+                <div class="slide-img bg-img" style="background-image: url({% static 'img/bg-img/nersery.jpg' %});"></div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <!-- Post Content -->
+                            <div class="hero-slides-content text-center">
+                                <h2>Plants exist in the weather and light rays that surround them</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Hero Post -->
+            <div class="single-hero-post bg-overlay">
+                <!-- Post Image -->
+                <div class="slide-img bg-img" style="background-image: url({% static 'img/bg-img/2.jpg' %});"></div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <!-- Post Content -->
+                            <div class="hero-slides-content text-center">
+                                <h2>Plants exist in the weather and light rays that surround them</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- ##### Product Area Start ##### -->
+    <section class="new-arrivals-products-area bg-gray section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <h2>NEW ARRIVALS</h2>
+                        <h4>10% Discount </h4>
+                        <p>We have the latest Plants, it must be exciting for you</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Single Product Area -->
+                {% for k in pr %}
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            <a href="{{k.get_url}}"><img src="{{k.imageURL}}" alt=""></a>
+                            <!-- Product Tag -->
+                            <div class="product-tag">
+                                <a href="#">Hot</a>
+                            </div>
+                            <div class="product-meta d-flex">
+                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                                <a href="{% url 'addcart' k.id %}" class="add-to-cart-btn">Add to cart</a>
+                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                            </div>
+                        </div>
+                        <!-- Product Info -->
+                        <div class="product-info mt-15 text-center">
+                                <p><a href="{{ k.get_url }}">{{ k.name }}</a></p>
+
+                            <h6>₹.{{ k.price}}</h6>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                </div>
+
+                <div class="col-12 text-center">
+                    <a href="{% url 'shop' %}" class="btn alazea-btn">View All</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Product Area End ##### -->
+
+<!--	pagination		-->
+
+<nav aria-label="...">
+  <ul class="pagination">
+	  {% if pr.has_previous %}
+    <li class="page-item disabled">
+      <a class="page-link" href="?page={{pr.previous_page_number}}" tabindex="-1">Previous</a>
+    </li>
+	  {% endif %}
+
+	  {%for i in pr.paginator.page_range %}
+    <li class="page-item{% if pr.number == i %} active {% endif %}"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+	  {% endfor %}
+
+
+
+	  {% if pr.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ pr.next_page_number }}">Next</a>
+    </li>
+	  {% endif %}
+  </ul>
+</nav>
+<!--------------------------end pagination----------------------->
+   <!-- ##### Testimonial Area Start ##### -->
+    <section class="testimonial-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonials-slides owl-carousel">
+
+                        <!-- Single Testimonial Slide -->
+                        {% for x in feedback %}
+                        <div class="single-testimonial-slide">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-6">
+                                    <div class="testimonial-thumb">
+                                        <img src="{{x.plant.imageURL}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="testimonial-content">
+                                        <!-- Section Heading -->
+                                        <div class="section-heading">
+                                            <h2> <b>Review</b></h2>
+                                            <p>Some kind words from clients about {{x.plant}}</p>
+                                        </div>
+                                        <p>"{{x.feedback}}”</p>
+                                        <div class="testimonial-author-info">
+                                            <h6>Mr. {{x.name}}</h6>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- Single Testimonial Slide -->
+
+
+                        <!-- Single Testimonial Slide -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Testimonial Area End ##### -->
+
+
+    <!-- ##### Blog Area Start ##### -->
+   <section class="alazea-blog-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>LATEST NEWS</h2>
+                    <p>The breaking news about Gardening &amp; House plants</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            {% for i in pr|slice:":3" %}
+            <!-- Single Blog Post Area -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-blog-post mb-100">
+                    <div class="post-thumbnail mb-30">
+                        <a href="single-post.html"><img src="{{ i.imageURL }}" alt="" class="fixed-height-img"></a>
+                    </div>
+                    <div class="post-content">
+                        <a href="single-post.html" class="post-title">
+                            <h5>{{i.name}}</h5>
+                        </a>
+                        <div class="post-meta">
+                            <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{i.date}}</a>
+                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{i.admin}}</a>
+                        </div>
+                        <p class="post-excerpt">{{i.details}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

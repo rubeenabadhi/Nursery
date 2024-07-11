@@ -1,0 +1,55 @@
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Plant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"  style="background-color:#697a8d">
+        <h2 class="my-4" ><center>Edit Plant</center></h2>
+        <h3 class="mb-4">Plant by <i>{{ plant.admin.name }}</i></h3>
+        <form method="post" action="{% url 'edit_plant' plant_id=plant.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ plant.name }}">
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" class="form-control-file" id="photo" name="photo">
+                <img src="{{ plant.img.url }}" alt="{{ plant.name }}" class="img-thumbnail mt-2" style="height: 100px; width: 100px;">
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" name="price" value="{{ plant.price }}">
+            </div>
+
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea class="form-control" id="details" name="details">{{ plant.details }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" class="form-control" id="stock" name="stock" value="{{ plant.stock }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}

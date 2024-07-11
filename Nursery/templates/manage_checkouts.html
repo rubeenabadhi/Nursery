@@ -1,0 +1,35 @@
+{% extends 'base_nursery.html' %}
+{% block content %}
+<br><br><br>
+<h2>Checkouts Managed by {{ N_Admin.name }}</h2>
+{% if checkout_items %}
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Checkout ID</th>
+        <th>Order Items</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for checkout_data in checkout_items %}
+        <tr>
+          <td>{{ checkout_data.checkout.user }}</td>
+          <td>{{ checkout_data.checkout.id }}</td>
+          <td>
+            <ul>
+              {% for order_item in checkout_data.order_items %}
+                <li>{{ order_item.plant.name }}, Quantity: {{ order_item.quantity }}, Price: {{ order_item.plant.price }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{ checkout_data.checkout.date_added }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No checkouts found for this admin.</p>
+{% endif %}
+{% endblock %}

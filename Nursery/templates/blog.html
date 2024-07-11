@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>BLOG DEFAULT</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+    <section class="alazea-blog-area mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="row">
+            {% for i in po %}
+                        <!-- Single Blog Post Area -->
+                        <div class="col-12 col-lg-6">
+                            <div class="single-blog-post mb-50">
+                                <div class="post-thumbnail mb-30">
+                                    <a href="single-post.html"><img src="{{ i.imageURL }}" alt=""></a>
+                                </div>
+                                <div class="post-content">
+                                    <a href="single-post.html" class="post-title">
+                                    <h5>{{i.name}}</h5>                                    </a>
+                                    <div class="post-meta">
+                                        <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> {{i.date}}</a>
+                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{i.admin}}</a>
+                                    </div>
+                                    <p class="post-excerpt">{{i.details}}</p>
+                                </div>
+                            </div>
+                        </div>
+{% endfor %}
+                        <!-- ##### Single Widget Area ##### -->
+                        <div class="single-widget-area">
+                            <!-- Title -->
+                            <div class="widget-title">
+                                <h4>BEST SELLER</h4>
+                            </div>
+
+                            <!-- Single Best Seller Products -->
+                            <div class="single-best-seller-product d-flex align-items-center">
+                                <div class="product-thumbnail">
+                                    <a href="shop-details.html"><img src="img/bg-img/4.jpg" alt=""></a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="shop-details.html">Cactus Flower</a>
+                                    <p>$10.99</p>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Best Seller Products -->
+                            <div class="single-best-seller-product d-flex align-items-center">
+                                <div class="product-thumbnail">
+                                    <a href="shop-details.html"><img src="img/bg-img/5.jpg" alt=""></a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="shop-details.html">Tulip Flower</a>
+                                    <p>$11.99</p>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Best Seller Products -->
+                            <div class="single-best-seller-product d-flex align-items-center">
+                                <div class="product-thumbnail">
+                                    <a href="shop-details.html"><img src="img/bg-img/34.jpg" alt=""></a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="shop-details.html">Recuerdos Plant</a>
+                                    <p>$9.99</p>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Blog Area End ##### -->
+
+{% endblock %}

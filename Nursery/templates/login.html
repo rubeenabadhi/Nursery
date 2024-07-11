@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area" xmlns="http://www.w3.org/1999/html">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" >
+            <h2>Login</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+<div class="container mt-5 mb-5" xmlns="http://www.w3.org/1999/html">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6">
+      <img src="{% static 'img/bg-img/22.jpg' %}" alt="Image" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h2>Login</h2>
+      <form method="post" action="user_login">
+        {% csrf_token %}
+        {% for i in messages %}
+        {{ i }}
+        {% endfor %}
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button> &nbsp;
+        <label style="color:blue">Forgot password?</label><link><a href="{% url 'forgotPassword' %} " style="color:blue">clickhere</a></link><br>
+
+        <label style="color:black">Do not have an account?</label>
+        <button type="button" class="" ><a href="{% url 'register' %}" >Register</a> </button><br>
+
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

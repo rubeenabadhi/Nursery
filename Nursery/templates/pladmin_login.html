@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br><br>
+<div class="container mt-5 mb-5" xmlns="http://www.w3.org/1999/html">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6">
+      <img src="{% static 'img/bg-img/22.jpg' %}" alt="Image" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h2>Login</h2>
+      <form method="post" action="nursery_login">
+        {% csrf_token %}
+        {% for i in messages %}
+        {{ i }}
+        {% endfor %}
+        <div class="form-group">
+          <label for="mob_num">Mobile Number</label>
+                                <input type="text" class="form-control" id="mob_num" name='mob_num' placeholder="Phone Number *" value=""/>
+        </div>
+        <div class="form-group">
+          <label for="password1">Password:</label>
+          <input type="password" class="form-control" id="password1" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <label style="color:blue">Forgot password?</label><link><a href="{% url 'forgotPassword' %} " style="color:blue">clickhere</a></link><br>
+
+        <label>Do not have an account?</label>
+
+        <button type="button" class="" ><a href="{% url 'register' %}" >Register</a> </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

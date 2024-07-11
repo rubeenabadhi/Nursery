@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>Checkout</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+
+    			<div class="col-lg-6 mb-5 ftco-animate">
+    				<a href="" class="image-popup prod-img-bg"><img src="{% static 'images/bag7.jpg' %}" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+<body>
+
+<form action="payments" method="POST" id="checkout-form">
+    {% csrf_token %}
+
+  <div>
+	  <label for="creditCard">Account_number</label>
+	  <input type="text" name="account_number" required id="creditCard">
+  </div>
+<div>
+	  <label for="name">Name</label>
+    <input type="text" name="name" required id="name"></div>
+  <div>
+	  <label for="cvv">Security Code</label>
+	  <input type="text" name="cvv" required id="cvv">
+  </div>
+
+  <div>
+    <label for="exp-month">Exp. (MM/YYYY)</label>
+      <input type="text" name="expiry_month" required id="exp-month" size="2">
+      <span> / </span>
+      <input type="text" name="expiry_rear" required id="exp-year" size="4">
+  </div>
+
+  <button type="submit" id="submit-button">Buy Now</button>
+
+</form>
+</body>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

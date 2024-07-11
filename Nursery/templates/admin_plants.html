@@ -1,0 +1,78 @@
+
+{% extends 'base_nursery.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body {
+        color: blue;
+    }
+
+    h2 {
+        color: #3366cc; /* Change this to your preferred color */
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 20px;
+        border: 1px solid #ddd; /* Add a border for separation */
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9; /* Light gray background */
+    }
+
+    p {
+        margin: 0;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        color: black; /* Set the font color for table cells */
+    }
+
+    tr:hover {
+        background-color: blue;
+    }
+</style>
+<body><br>
+<center><h2><b>Plants Added by {{N_Admin.name}}</b></h2>  </center>  <table class="table" bgcolor="#AFC8FD" border="5" cellpadding="30" cellspacing="0">
+        <thead colspan="7">
+            <tr><b>
+                    <th>Plant Nmae</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                    <th>Discription</th>
+                    <th>Price</th>
+              <th>Stock</th>
+              <th>Added At</th>
+
+                </b></tr>
+        </thead>
+        <tbody>
+ {% for plant in admin_plants %}
+              <tr>
+<td> {{ plant.name }} <a href="{% url 'edit_plant' plant_id=plant.id %}" class="menu-link">Edit</a></td>
+
+                <td> {{ plant.category }}</td>
+                <td><img src="{{plant.imageURL}}" border=7 height=100 width=100></td>
+                <td> {{ plant.details }}</td>
+                <td> {{ plant.price }}</td>
+                <td> {{ plant.stock }}</td>
+                <td> {{ plant.date }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+{% endblock %}
+
+
+

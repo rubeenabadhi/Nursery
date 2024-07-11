@@ -1,0 +1,76 @@
+{% extends "base.html" %}  {% block content %}
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area" xmlns="http://www.w3.org/1999/html">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="color:white">
+            <h2>Edit Profile</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Your Data</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+<div class="content-section">
+  <div class="media">
+
+    <div class="media-body">
+    </div>
+  </div>
+  <!-- FORM HERE --><center style="background-color:white">
+    <h4 ><b>Edit your profile</b></h4>
+    <div class="col-6">
+<form method="POST" action="{% url 'nursery_editprofile' admin_id=N_Admin.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+      {% for i in messages %}
+        {{i}}
+        {% endfor %}
+
+
+        <div class="form-group">
+          <label for="name">Nursery Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="{{N_Admin.name}}" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="{{N_Admin.email}}" required>
+        </div>
+       <div class="form-group">
+          <label for="mob">Mobile No:</label>
+          <input type="mobile" class="form-control" id="mob" name="mobile" placeholder="{{N_Admin.mob_num}}" required>
+        </div>
+         <div class="form-group">
+          <label for="photo">Image:</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+        </div>
+       <div class="form-group">
+          <label for="address">Adress:</label>
+          <input type="text" class="form-control" id="address" name="address" placeholder="{{N_Admin.nursery_address}}" required>
+        </div>
+<div class="form-group">
+            <label for="oldpswd">Old Password:</label>
+              <input type="password" class="form-control" id="oldpswd" name="oldpswd" placeholder="" required>
+
+        </div>
+        <div class="form-group">
+         <p> <label for="password1">New Password:</label>
+                           <input type="password" class="form-control" id="password1" name="newpaswd1" placeholder="" required>
+<label for="password1">Confirm Password:</label>
+                           <input type="password" class="form-control" id="password" name="newpaswd2" placeholder="" required>
+
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit" style="background-color: #555555">Update</button>
+    </div>
+        </div></form>
+   </div>
+</center></div>
+{% endblock content %}
