@@ -1,10 +1,3 @@
-![Screenshot (3729)](https://github.com/user-attachments/assets/e6ed0a1b-04fa-4ab5-96e1-582f5fb487d6)![Screenshot (3729)](https://github.com/user-attachments/assets/5e59c695-59b7-48c1-a62b-0197498fc983)
-![Screenshot (3752)](https://github.com/user-attachments/assets/b6f8df47-6252-4d15-9ce8-bbf91ed17ab2)
-![Screenshot (3751)](https://github.com/user-attachments/assets/af2fabaa-794b-4a24-8388-b229bf27047d)
-![Screenshot (3750)](https://github.com/user-attachments/assets/c09523d3-6826-4063-be6f-f3527411416b)
-![Screenshot (3749)](https://github.com/user-attachments/assets/02e40756-c649-46be-8d8f-6aa1e04ef919)
-![Screenshot (3748)](https://github.com/user-attachments/assets/6e48d00b-d1b5-4d95-97a7-9df79c7a85df)
-![Screenshot (3754)](https://github.com/user-attachments/assets/ce21f64a-ecb1-4115-a3c3-5b210573bebd)
 # Plant Nursery
 ## includes
 #### python django,HTML,javascripts,css,Bootstrap,Razorpay
@@ -14,6 +7,14 @@
 #### admin can view customer details, Nersery, Payments, Feedbacks, contact messages and manage the all plants, seeds details...etc
 ## For Nursery
 #### Register their profile,View/edit/delete profile, Forgot password, Addplants by category,Views about their plants review, add tutorials about plants and seeds..etc
+![Screenshot (3729)](https://github.com/user-attachments/assets/e6ed0a1b-04fa-4ab5-96e1-582f5fb487d6)
+![Screenshot (3729)](https://github.com/user-attachments/assets/5e59c695-59b7-48c1-a62b-0197498fc983)
+![Screenshot (3752)](https://github.com/user-attachments/assets/b6f8df47-6252-4d15-9ce8-bbf91ed17ab2)
+![Screenshot (3751)](https://github.com/user-attachments/assets/af2fabaa-794b-4a24-8388-b229bf27047d)
+![Screenshot (3750)](https://github.com/user-attachments/assets/c09523d3-6826-4063-be6f-f3527411416b)
+![Screenshot (3749)](https://github.com/user-attachments/assets/02e40756-c649-46be-8d8f-6aa1e04ef919)
+![Screenshot (3748)](https://github.com/user-attachments/assets/6e48d00b-d1b5-4d95-97a7-9df79c7a85df)
+![Screenshot (3754)](https://github.com/user-attachments/assets/ce21f64a-ecb1-4115-a3c3-5b210573bebd)
 ![Screenshot (3745)](https://github.com/user-attachments/assets/d11efda6-66ce-4ef6-a253-f6e04d9432d0)
 ![Screenshot (3744)](https://github.com/user-attachments/assets/4af83b5c-9f26-4874-81e6-d5db987a2d49)
 ![Screenshot (3743)](https://github.com/user-attachments/assets/b0c98d56-7f42-4931-a118-b5203d5f42f0)
